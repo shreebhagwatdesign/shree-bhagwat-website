@@ -103,48 +103,162 @@
 
   <div class="work-photo">
     <img src="work2.jpg" alt="Our Project Work 2" loading="lazy">
-    <h3>Projection Work</h3>
-  </div>
 
-  <div class="work-photo">
-    <img src="work3.jpg" alt="Our Design Work 3" loading="lazy">
-    <h3>Our Latest Work</h3>
-  </div>
-</div>
-</section>
-<section class="section how"><div class="center"><div class="eyebrow">SIMPLE PROCESS</div><h2>How It Works</h2></div><div class="steps"><div><b>01</b><h3>Share Requirement</h3><p>अपनी जरूरत और प्रोजेक्ट की जानकारी दें।</p></div><div><b>02</b><h3>Discuss & Quote</h3><p>काम की डिटेल और कीमत तय करें।</p></div><div><b>03</b><h3>Design & Review</h3><p>डिजाइन की समीक्षा करके बदलाव बताएं।</p></div><div><b>04</b><h3>Final Delivery</h3><p>फाइनल फाइल या प्रोजेक्ट प्राप्त करें।</p></div></div></section>
-
+<!-- REQUEST A QUOTE -->
 <section class="section quote-section" id="order">
 
-<section class="section center" id="contact">
+  <div class="quote-intro">
+    <div class="eyebrow">LET'S CREATE TOGETHER</div>
+    <h2>Request a Quote</h2>
+    <p>
+      अपने प्रोजेक्ट की जानकारी भरें और
+      WhatsApp के माध्यम से हमें भेजें।
+      हमारी टीम आपसे संपर्क करेगी।
+    </p>
+    <div class="note">
+      ऑनलाइन पेमेंट और ऑटोमेटिक ऑर्डर
+      सेविंग अभी उपलब्ध नहीं हैं।
+    </div>
+  </div>
+
+  <form id="quoteForm" class="quote-form">
+
+    <label>
+      आपका नाम
+      <input type="text" name="name"
+        placeholder="पूरा नाम" required>
+    </label>
+
+    <label>
+      मोबाइल नंबर
+      <input type="tel" name="phone"
+        placeholder="10 अंकों का नंबर"
+        inputmode="numeric"
+        pattern="[0-9]{10}"
+        maxlength="10" required>
+    </label>
+
+    <label>
+      सेवा चुनें
+      <select name="service" required>
+        <option value="">Select Service</option>
+        <option>Graphic Design</option>
+        <option>Projection Solutions</option>
+        <option>Wedding &amp; Event Design</option>
+        <option>Print-Ready Artwork</option>
+        <option>Custom Design Projects</option>
+        <option>Logo &amp; Branding</option>
+      </select>
+    </label>
+
+    <label>
+      प्रोजेक्ट विवरण
+      <textarea name="details" rows="4"
+        placeholder="काम का प्रकार, साइज और अन्य जानकारी"
+        required></textarea>
+    </label>
+
+    <label>
+      Reference File (Optional)
+      <input type="file" id="referenceFile"
+        accept=".jpg,.jpeg,.png,.pdf,.zip,.cdr,.ai">
+    </label>
+
+    <p class="tiny">
+      फाइल अपने आप अपलोड नहीं होगी।
+      इसे WhatsApp पर अलग से भेजें।
+    </p>
+
+    <button type="submit" class="btn primary full">
+      Prepare Enquiry ↗
+    </button>
+
+    <div id="formResult" class="form-result" hidden>
+      <p>
+        आपकी Enquiry तैयार है।
+        WhatsApp पर भेजें या कॉपी करें।
+      </p>
+
+      <textarea id="messageOutput"
+        rows="6" readonly></textarea>
+
+      <div class="btns">
+        <button type="button" id="copyBtn"
+          class="btn outline">
+          Copy Details
+        </button>
+
+        <a id="whatsappBtn"
+          class="btn primary"
+          target="_blank"
+          rel="noopener noreferrer"
+          hidden>
+          Send on WhatsApp ↗
+        </a>
+      </div>
+    </div>
+
+  </form>
+</section>
+
+<!-- CONTACT US -->
+<section class="section center contact" id="contact">
+
   <div class="eyebrow">GET IN TOUCH</div>
   <h2>Contact Us</h2>
+
   <p class="sub">
-    Shree Bhagwat Design & Projection से
+    Shree Bhagwat Design &amp; Projection से
     संपर्क करने के लिए नीचे दिए गए
     विकल्पों का उपयोग करें।
   </p>
 
-  <div class="btns" style="justify-content:center; flex-wrap:wrap;">
+  <div class="btns"
+    style="justify-content:center;flex-wrap:wrap;">
+
     <a class="btn primary"
-       href="https://wa.me/918989841724"
-       target="_blank"
-       rel="noopener noreferrer">
+      href="https://wa.me/918989841724"
+      target="_blank"
+      rel="noopener noreferrer">
       WhatsApp Us ↗
     </a>
 
     <a class="btn outline"
-       href="mailto:shreebhagwatdesign@gmail.com">
+      href="mailto:shreebhagwatdesign@gmail.com">
       Send Email ↗
     </a>
 
     <a class="btn primary"
-       href="https://www.google.com/maps/search/?api=1&amp;query=Ravindra+Nagar%2C+Rewa%2C+Madhya+Pradesh+486001"
-       target="_blank"
-       rel="noopener noreferrer">
+      href="https://www.google.com/maps/search/?api=1&amp;query=Ravindra+Nagar%2C+Rewa%2C+Madhya+Pradesh+486001"
+      target="_blank"
+      rel="noopener noreferrer">
       📍 View Location on Google Maps
     </a>
+
   </div>
+
+  <p style="margin-top:25px;">
+    <strong>Phone:</strong>
+    <span id="contactPhone">8989841724</span>
+  </p>
+
+  <p>
+    <strong>Email:</strong>
+    <span id="contactEmail">
+      shreebhagwatdesign@gmail.com
+    </span>
+  </p>
+
+  <p>
+    <strong>Address:</strong>
+    <span id="contactAddress">
+      Ravindra Nagar, Rewa,
+      Madhya Pradesh 486001, India
+    </span>
+  </p>
+
+</section>
+
 
   <p style="margin-top:25px;">
     <strong>Phone:</strong> 8989841724
