@@ -38,3 +38,85 @@
     height: 230px;
   }
 }
+/* Our Work Section - Professional Gallery */
+.work-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px;
+  margin-top: 40px;
+  align-items: stretch;
+}
+
+.work-photo {
+  background: #ffffff;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 18px 45px rgba(23, 32, 71, 0.14);
+  border: 1px solid rgba(101, 69, 223, 0.08);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.work-photo:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 24px 55px rgba(23, 32, 71, 0.20);
+}
+
+.work-photo img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.45s ease;
+}
+
+.work-photo:hover img {
+  transform: scale(1.06);
+}
+
+.work-photo h3 {
+  margin: 0;
+  padding: 20px 18px 24px;
+  text-align: center;
+  font-size: 22px;
+  line-height: 1.35;
+  font-weight: 700;
+  color: #172047;
+  background: #ffffff;
+}
+
+/* Tablet */
+@media (max-width: 992px) {
+  .work-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+  }
+
+  .work-photo img {
+    height: 280px;
+  }
+
+  .work-photo h3 {
+    font-size: 20px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .work-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .work-photo {
+    border-radius: 20px;
+  }
+
+  .work-photo img {
+    height: 240px;
+  }
+
+  .work-photo h3 {
+    font-size: 18px;
+    padding: 16px 14px 20px;
+  }
+}
