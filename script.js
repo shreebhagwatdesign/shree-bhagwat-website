@@ -1,7 +1,7 @@
 // EDIT THESE VALUES BEFORE PUBLISHING. Do not put private keys in this file.
 const BUSINESS = {
   whatsapp: '918989841724',
-  phone: '8319966185',
+  phone: '8989841724',
   email: 'shreebhagwatdesign@gmail.com',
   address: ''
 };
