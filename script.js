@@ -3,7 +3,7 @@ const BUSINESS = {
   whatsapp: '918989841724',
   phone: '8989841724',
   email: 'shreebhagwatdesign@gmail.com',
-  address: ''
+  address: 'Ravindra Nagar, Rewa, Madhya Pradesh 486001, India'
 };
 const $ = s => document.querySelector(s);
 $('#year').textContent = new Date().getFullYear();
