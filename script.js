@@ -31,3 +31,29 @@ $('#copyBtn').addEventListener('click',async()=>{
   try {await navigator.clipboard.writeText(message);$('#copyBtn').textContent='Copied ✓';}
   catch {$('#messageOutput').focus();$('#messageOutput').select();$('#copyBtn').textContent='Select text and copy';}
 });
+
+/* Auto-select Service on Enquire Click */
+
+document.querySelectorAll(
+  '#services a[data-service]'
+).forEach(button => {
+  button.addEventListener('click', () => {
+    const serviceName = button.dataset.service;
+    const serviceSelect = document.querySelector(
+      '#quoteForm select[name="service"]'
+    );
+
+    if (serviceSelect) {
+      const optionExists = Array.from(
+        serviceSelect.options
+      ).some(option => option.value === serviceName);
+
+      if (optionExists) {
+        serviceSelect.value = serviceName;
+        serviceSelect.dispatchEvent(
+          new Event('change', { bubbles: true })
+        );
+      }
+    }
+  });
+});
