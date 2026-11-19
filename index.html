@@ -113,7 +113,128 @@
 </div>
 </section>
 <section class="section how"><div class="center"><div class="eyebrow">SIMPLE PROCESS</div><h2>How It Works</h2></div><div class="steps"><div><b>01</b><h3>Share Requirement</h3><p>अपनी जरूरत और प्रोजेक्ट की जानकारी दें।</p></div><div><b>02</b><h3>Discuss & Quote</h3><p>काम की डिटेल और कीमत तय करें।</p></div><div><b>03</b><h3>Design & Review</h3><p>डिजाइन की समीक्षा करके बदलाव बताएं।</p></div><div><b>04</b><h3>Final Delivery</h3><p>फाइनल फाइल या प्रोजेक्ट प्राप्त करें।</p></div></div></section>
-<section class="section quote-section" id="order"><div class="quote-intro"><div class="eyebrow">LET'S CREATE TOGETHER</div><h2>Request a Quote</h2><p>अपने प्रोजेक्ट की जानकारी भेजें। यह डेमो फॉर्म विवरण तैयार करता है; भेजने के लिए WhatsApp नंबर सेट करना होगा या टेक्स्ट कॉपी कर सकते हैं।</p><div class="note">ℹ ऑनलाइन पेमेंट और ऑटोमेटिक ऑर्डर सेविंग अभी सक्रिय नहीं हैं। इन्हें सुरक्षित बैकएंड और पेमेंट गेटवे से जोड़ना होगा।</div></div><form id="quoteForm" class="quote-form"><label>आपका नाम<input name="name" required placeholder="पूरा नाम"></label><label>मोबाइल नंबर<input name="phone" required inputmode="numeric" pattern="[0-9]{10}" maxlength="10" placeholder="10 अंकों का नंबर"></label><label>सेवा चुनें
+
+<section class="section quote-section" id="order">
+
+  <div class="quote-intro">
+    <div class="eyebrow">LET'S CREATE TOGETHER</div>
+    <h2>Request a Quote</h2>
+
+    <p>
+      अपने प्रोजेक्ट की जानकारी भरें और
+      WhatsApp पर हमें भेजें। हमारी टीम
+      आपसे संपर्क करेगी।
+    </p>
+
+    <div class="note">
+      ℹ ऑनलाइन पेमेंट और ऑटोमेटिक ऑर्डर
+      सेविंग अभी उपलब्ध नहीं हैं।
+    </div>
+  </div>
+
+  <form id="quoteForm" class="quote-form">
+
+    <label>
+      आपका नाम
+      <input
+        name="name"
+        type="text"
+        required
+        placeholder="पूरा नाम">
+    </label>
+
+    <label>
+      मोबाइल नंबर
+      <input
+        name="phone"
+        type="tel"
+        required
+        inputmode="numeric"
+        pattern="[0-9]{10}"
+        maxlength="10"
+        placeholder="10 अंकों का नंबर">
+    </label>
+
+    <label>
+      सेवा चुनें
+      <select name="service" required>
+        <option value="">Select Service</option>
+        <option>Graphic Design</option>
+        <option>Projection Solutions</option>
+        <option>Wedding & Event Design</option>
+        <option>Print-Ready Artwork</option>
+        <option>Custom Design Projects</option>
+        <option>Logo & Branding</option>
+      </select>
+    </label>
+
+    <label>
+      प्रोजेक्ट विवरण
+      <textarea
+        name="details"
+        rows="4"
+        required
+        placeholder="काम का प्रकार, साइज, समय आदि">
+      </textarea>
+    </label>
+
+    <label>
+      Reference File (Optional)
+      <input
+        type="file"
+        id="referenceFile"
+        accept=".jpg,.jpeg,.png,.pdf,.zip,.cdr,.ai">
+    </label>
+
+    <p class="tiny">
+      Reference File अपने आप अपलोड
+      नहीं होगी। इसे WhatsApp पर
+      अलग से भेजना होगा।
+    </p>
+
+    <button class="btn primary full" type="submit">
+      Prepare Enquiry ↗
+    </button>
+
+    <div
+      id="formResult"
+      class="form-result"
+      aria-live="polite"
+      hidden>
+
+      <p>
+        आपकी Enquiry तैयार है।
+        नीचे WhatsApp बटन दबाकर भेजें।
+      </p>
+
+      <textarea
+        id="messageOutput"
+        rows="6"
+        readonly></textarea>
+
+      <div class="btns">
+        <button
+          id="copyBtn"
+          type="button"
+          class="btn outline">
+          Copy Details
+        </button>
+
+        <a
+          id="whatsappBtn"
+          class="btn primary"
+          target="_blank"
+          rel="noopener noreferrer"
+          hidden>
+          Send on WhatsApp
+        </a>
+      </div>
+
+    </div>
+
+  </form>
+</section>
+<div class="quote-intro"><div class="eyebrow">LET'S CREATE TOGETHER</div><h2>Request a Quote</h2><p>अपने प्रोजेक्ट की जानकारी भेजें। यह डेमो फॉर्म विवरण तैयार करता है; भेजने के लिए WhatsApp नंबर सेट करना होगा या टेक्स्ट कॉपी कर सकते हैं।</p><div class="note">ℹ ऑनलाइन पेमेंट और ऑटोमेटिक ऑर्डर सेविंग अभी सक्रिय नहीं हैं। इन्हें सुरक्षित बैकएंड और पेमेंट गेटवे से जोड़ना होगा।</div></div><form id="quoteForm" class="quote-form"><label>आपका नाम<input name="name" required placeholder="पूरा नाम"></label><label>मोबाइल नंबर<input name="phone" required inputmode="numeric" pattern="[0-9]{10}" maxlength="10" placeholder="10 अंकों का नंबर"></label><label>सेवा चुनें
 <select name="service" required>
   <option value="">Select Service</option>
   <option>Graphic Design</option>
