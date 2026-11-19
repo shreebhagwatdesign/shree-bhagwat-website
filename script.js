@@ -1,8 +1,8 @@
 // EDIT THESE VALUES BEFORE PUBLISHING. Do not put private keys in this file.
 const BUSINESS = {
-  whatsapp: '', // e.g. '919876543210' (country code + number, no + or spaces)
-  phone: '',
-  email: '',
+  whatsapp: '918989841724',
+  phone: '8319966185',
+  email: 'shreebhagwatdesign@gmail.com',
   address: ''
 };
 const $ = s => document.querySelector(s);
