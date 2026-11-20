@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="hi">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Upload Design | Shree Bhagwat Design & Projection</title>
+  <style>
+    * {box-sizing:border-box} body{font:16px system-ui,Arial,sans-serif;margin:0;background:#f6f4fd;color:#20203f}
+    main{max-width:620px;margin:32px auto;padding:28px;background:white;border-radius:20px;box-shadow:0 10px 30px #29204a15}
+    h1{font-size:28px;margin:0 0 10px}p{line-height:1.6}label{display:block;margin:16px 0 7px;font-weight:650}
+    input,select,textarea{display:block;width:100%;padding:12px;border:1px solid #bdb6d0;border-radius:9px;font:inherit}
+    textarea{min-height:100px}button{background:#6744d3;color:white;border:0;border-radius:10px;padding:14px 22px;font:inherit;font-weight:bold;margin-top:20px;cursor:pointer;width:100%}
+    button:disabled{opacity:.6;cursor:wait}.muted{font-size:14px;color:#555}#result{margin-top:16px;padding:12px;border-radius:10px;background:#f2effb;overflow-wrap:anywhere}
+    a{color:#6641c4}.trap{position:absolute;left:-9999px}
+  </style>
+</head>
+<body>
+<main>
+  <a href="/">← वेबसाइट पर वापस जाएँ</a>
+  <h1>Upload Your Design</h1>
+  <p>JPG, PNG या PDF फाइल भेजें (अधिकतम 8 MB)। फाइल ग्राहक की अनुमति से निजी स्टोरेज में सेव होगी।</p>
+  <form id="uploadForm">
+    <label for="name">आपका नाम</label><input id="name" name="name" maxlength="100" required minlength="2" autocomplete="name">
+    <label for="phone">मोबाइल नंबर</label><input id="phone" name="phone" type="tel" pattern="[6-9][0-9]{9}" maxlength="10" required inputmode="numeric">
+    <label for="service">सर्विस चुनें</label>
+    <select id="service" name="service" required>
+      <option value="">सर्विस चुनें</option>
+      <option>Graphic Design</option><option>Projection Solutions</option>
+      <option>Wedding &amp; Event Design</option><option>Print-Ready Artwork</option>
+      <option>Custom Design Projects</option><option>Logo &amp; Branding</option>
+    </select>
+    <label for="details">प्रोजेक्ट विवरण</label><textarea id="details" name="details" maxlength="2000" placeholder="काम का साइज, डिजाइन निर्देश आदि"></textarea>
+    <label for="design">डिजाइन फाइल</label><input id="design" name="design" type="file" accept=".jpg,.jpeg,.png,.pdf" required>
+    <label class="trap" aria-hidden="true">Website<input name="website" tabindex="-1" autocomplete="off"></label>
+    <p class="muted">फाइल में कोई संवेदनशील दस्तावेज़ न डालें। अपलोड होने पर आपको Request ID मिलेगी। यह ऑर्डर या भुगतान की पुष्टि नहीं है।</p>
+    <label style="font-weight:normal"><input type="checkbox" required style="width:auto;display:inline"> मैं अपनी जानकारी और फाइल केवल इस enquiry के लिए साझा करने की अनुमति देता/देती हूँ।</label>
+    <button id="send" type="submit">Submit Design</button>
+  </form>
+  <div id="result" role="status" aria-live="polite" hidden></div>
+</main>
+<script>
+  // Replace with your actual Render BACKEND Web Service URL (without trailing slash).
+  const API_BASE = 'https://shree-bhagwat-upload-api.onrender.com';
+  const form = document.getElementById('uploadForm');
+  const button = document.getElementById('send');
+  const result = document.getElementById('result');
+  form.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    result.hidden = false;
+    result.textContent = 'अपलोड किया जा रहा है...';
+    const file = document.getElementById('design').files[0];
+    if (!file || file.size > 8 * 1024 * 1024) { result.textContent='कृपया 8 MB से छोटी फाइल चुनें।'; return; }
+    if (API_BASE.includes('YOUR-UPLOAD-API')) { result.textContent = 'Backend URL अभी सेट नहीं हुआ है।'; return; }
+    button.disabled = true;
+    try {
+      const response = await fetch(`${API_BASE}/api/upload`, { method: 'POST', body: new FormData(form) });
+      const data = await response.json();
+      if (!response.ok) throw new Error(data.error || 'Upload failed');
+      result.textContent = `Design सुरक्षित सेव हुआ। आपकी Request ID: ${data.requestId}। कृपया इसे सुरक्षित रखें।`;
+      form.reset();
+    } catch (error) { result.textContent = `अपलोड नहीं हुआ: ${error.message}`; }
+    finally { button.disabled = false; }
+  });
+</script>
+</body></html>
